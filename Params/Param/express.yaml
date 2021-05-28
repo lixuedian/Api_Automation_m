@@ -48,7 +48,7 @@ getExpressTracesOne:
       }
       header: *header
       parser: *parser
-      expected: { 'code': 12, 'msg': '请求成功' }
+      expected: { 'code': 1, 'msg': '请求成功' }
 
 setExpressOne:
   dec: "主流程"
