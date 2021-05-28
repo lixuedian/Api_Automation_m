@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
-# 开发时间 ： 2020/12/17 11:31
-# 文件名称 ： run.py
-# 开发工具 ： PyCharm
-
 """
 运行用例集：
     python3 run.py
@@ -15,14 +9,14 @@
 
 import pytest
 
-from Common import Log, GToken as gt
+from Common import Log, GToken as Gt
 from Common import Shell
 from Common.Email import get_report_file
 from Config import Config
 from Common import Email
 
 if __name__ == '__main__':
-    gt._init()
+    Gt._init()
     conf = Config.Config()
     log = Log.MyLog()
     log.info('初始化配置文件, path=' + conf.conf_path)
@@ -45,7 +39,7 @@ if __name__ == '__main__':
     try:
         report_file = get_report_file(report_path)
         mail = Email.SendMail()
-        mail.sendMail(report_file)
+        mail.send_mail(report_file)
     except Exception as e:
         log.error('发送邮件失败，请检查邮件配置')
         raise

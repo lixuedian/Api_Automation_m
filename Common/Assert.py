@@ -47,7 +47,8 @@ class Assertions:
             return True
 
         except:
-            self.log.error("Response body msg != expected_msg, expected_msg is %s, body_msg is %s" % (expected_msg, body_msg))
+            self.log.error(
+                "Response body msg != expected_msg, expected_msg is %s, body_msg is %s" % (expected_msg, body_msg))
             Consts.RESULT_LIST.append('fail')
 
             raise
@@ -71,9 +72,10 @@ class Assertions:
 
             raise
 
-    def assert_text(self, body, expected_msg):
+    def assert_text(self, body, expected_msg, test_name):
         """
         验证response body中是否等于预期字符串
+        :param test_name:
         :param body:
         :param expected_msg:
         :return:
@@ -83,7 +85,8 @@ class Assertions:
             return True
 
         except:
-            self.log.error("Response body != expected_msg, expected_msg is %s, body is %s" % (expected_msg, body))
+            self.log.error("%s Response body != expected_msg, 预期结果 is %s, 实际结果 is %s" % (test_name,
+                                                                                         expected_msg, body))
             Consts.RESULT_LIST.append('fail')
 
             raise
@@ -104,5 +107,3 @@ class Assertions:
             Consts.RESULT_LIST.append('fail')
 
             raise
-
-

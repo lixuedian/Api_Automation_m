@@ -40,6 +40,17 @@ class GetPages:
         return _page_list
 
 
+def badydata(locator, key, string):
+    # 获取data中要传参数的valve
+    olddata = locator['data'][key]
+    # 将value和参数拼接新的value
+    newdata = olddata % string
+    # 将新的value复制给data中对应的key
+    locator['data'][key] = newdata
+    # 讲新的locator返回
+    return locator
+
+
 if __name__ == '__main__':
-    list =[]
+    list = []
     lists = GetPages.get_page_list()

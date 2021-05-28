@@ -8,7 +8,6 @@
 封装request
 
 """
-import json
 import os
 import random
 import requests
@@ -17,6 +16,7 @@ from requests_toolbelt import MultipartEncoder
 from Common import Log
 from Config.Config import Config
 from Mode.body_data import json_to_get
+import json
 
 
 class Request:
@@ -40,14 +40,23 @@ class Request:
         :return:
 
         """
-        if not url.startswith('https://'):
-            url = '%s%s' % ('https://', self.config.test04_unified_url+url)
+        if url.startswith('https://') or url.startswith('http://'):
+            # url = '%s%s' % ('http://', self.config.test04_unified_url+url)
+            url = url
+        else:
+            url = '%s%s' % ('http://', url)
             print('url={}'.format(url))
         try:
             if data is None:
                 response = requests.get(url=url, headers=header)
+                print(response.json())
             else:
                 response = requests.get(url=url, params=data, headers=header)
+                # print(response.json())
+                # res = response.json()
+                # code = res['code'],
+                # msg = res['msg']
+                # print(code, msg)
                 request_headers = response.request.headers
             print('Get.response  request_headers={} '.format(request_headers))
         except requests.RequestException as e:
@@ -60,24 +69,31 @@ class Request:
             return ()
         return response.json()
 
-    def post_request(self, url, data, header):
+    def post_request(self,  url, data, header, f_type):
         """
         Post请求
+        :param f_type:
         :param url:
         :param data:
         :param header:
         :return:
 
         """
-        if not url.startswith('https://'):
-            url = '%s%s' % ('https://', self.config.test04_unified_url+url)
-            print(url)
+        if url.startswith('https://') or url.startswith('http://'):
+            url = url
+        else:
+            url = '%s%s' % ('https://', url)
+            print('url={}'.format(url))
+        if f_type == "data":
+            data = data
+        elif f_type == "json":
+            data = json.dumps(data)
         try:
             if data is None:
                 response = requests.post(url=url, headers=header)
             else:
-                response = requests.post(url=url, params=data, headers=header)
-
+                response = requests.post(url=url, headers=header, data=data)
+                print(response.json())
         except requests.RequestException as e:
             print('%s%s' % ('RequestException url: ', url))
             print(e)
@@ -112,6 +128,7 @@ class Request:
     def post_request_multipart(self, url, data, header, file_parm, file, f_type):
         """
         提交Multipart/form-data 格式的Post请求
+        :param f_type:
         :param url:
         :param data:
         :param header:
@@ -179,13 +196,14 @@ class Request:
         :param type:
         :return:
         """
-        if not url.startswith('https://'):
-            url = '%s%s' % ('https://', self.config.test04_unified_url+url)
+        if not url.startswith('http://'):
+            url = '%s%s' % ('http://', self.config.test_user_url+url)
             print('url={}'.format(url))
         try:
             data = json_to_get(data)
             url = url+'?'+data
             response = requests.post(url=url, headers=header)
+            print(response.json())
         except requests.RequestException as e:
             print('%s%s' % ('RequestException url: ', url))
             print(e)
@@ -242,6 +260,7 @@ class Request:
         response_dicts['time_total'] = time_total
 
         return response_dicts
+
 
 # if __name__ == '__main__':
 #     config =Config()

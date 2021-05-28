@@ -1,0 +1,142 @@
+getRecruitExamList:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取招考列表-事业单位'
+      mode: 1
+      type: data
+      methods: post
+      url: /recruitexam/information/getRecruitExamList
+      data: {
+        'businessId': 1,
+        'activityEntityId': 22,
+        'page': 1,
+        'type': 1
+      }
+      header: &header {
+        'token' : &token 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOiIxODYyNTAiLCJhdXRoVGltZSI6MTYyMjAxMzQyMn0.wF8OCDto78xoY1qST_55GifkUwNAaTKkZtJENGsMMRk',
+        'AppFlag': '1',
+        'TIMESTAMP': '16158593565001',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'DeviceID': '267B298F-7B73-4DBE-A13C-68FBCF0319A7',
+        'source': '134',
+        'DeviceType': 'iPhone 6s',
+        'PlatformVersion': '123',
+        'Platform': '123',
+        'projectId': '1',
+        'EagleEye-TraceId': '4E3A3F40-67A6-4890-A335-D30EFCA984FC__1615859356499',
+        'APPVERSION': '1.0.0',
+        'uuid': '186250',
+      }
+      #header: {'token': &token}
+      parser:  &parser {'code' :"['body']['code']", 'msg': '["body"]["msg"]' }
+      expected: &expected { 'code': 1, 'msg': '成功' }
+    -
+      test_name: '获取招考列表-教师招聘'
+      mode: 1
+      type: data
+      methods: post
+      url: /recruitexam/information/getRecruitExamList
+      data: {
+        'businessId': 1,
+        'activityEntityId': 22,
+        'page': 1,
+        'type': 2
+      }
+      header: *header
+      #header: {'token': &token}
+      parser: *parser
+      expected: *expected
+    -
+      test_name: '获取招考列表-教师资格'
+      mode: 1
+      type: data
+      methods: post
+      url: /recruitexam/information/getRecruitExamList
+      data: {
+        'businessId': 1,
+        'activityEntityId': 22,
+        'page': 1,
+        'type': 3
+      }
+      header: *header
+      parser: *parser
+      expected: *expected
+
+getShijuanList:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取估分试卷列表'
+      mode: 1
+      type: data
+      methods: post
+      url: /shijuan/assessment/getShijuanList
+      data: {
+        'businessId': 1,
+        'activityEntityId': 22,
+        'recruitExamId': 1,
+        'recruitStageKey': 1,
+        'page': 1
+      }
+      header: *header
+      parser: *parser
+      expected: *expected
+
+getAdList:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取招考广告接口'
+      mode: 1
+      type: data
+      methods: post
+      url: /recruitexam/operate/getAdList
+      data: {
+        'businessId': 1,
+        'activityEntityId': 22,
+        'recruitExamId': 1,
+        'positionCode': 'index'
+      }
+      header: *header
+      parser: *parser
+      expected: *expected
+
+getTakeExamList:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '估分，领资料 首页气泡数据V2版本'
+      mode: 1
+      type: data
+      methods: post
+      url: /recruitexam/operate/getTakeExamList
+      data: {
+        'businessId': 1,
+        'activityEntityId': 22,
+        'recruitExamId': 1,
+        'positionCode': 'index',
+        'recruitStageKey': 0
+      }
+      header: *header
+      parser: *parser
+      expected: *expected
+
+adGiveProduct:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '赠送课程_New'
+      mode: 1
+      type: data
+      methods: post
+      url: /order/adGiveProduct
+      data: {
+        'businessId': 1,
+        'adId': 20000,
+        'source': 133,
+        'deviceInfo': 'iPhone8'
+      }
+      header: *header
+      parser: *parser
+      expected: *expected

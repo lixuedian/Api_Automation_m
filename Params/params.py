@@ -21,15 +21,25 @@ def get_parameter(name):
 
 
 class Basic:
-    log.info('解析yaml, Path:' + path_dir + '/Params/Param/Login.yaml')
-    params = get_parameter('Basic')
-    case_data=[]
+    # log.info('解析yaml, Path:' + path_dir + '/Params/Param/Login.yaml')
+    params = get_parameter('Login')
+    case_data = []
     for i in range(0, len(params)):
         case_data.append(params[i])
 
+
 class Process:
-    log.info('解析yaml, Path:' + path_dir + '/Params/Param/Process.yaml')
+    # log.info('解析yaml, Path:' + path_dir + '/Params/Param/Process.yaml')
     params = get_parameter('Process')
+    case_data = []
+    for i in range(0, len(params)):
+        case_data.append(params[i])
+        # print(params)
+
+
+class ShiJuan:
+    # log.info('解析yaml, Path:' + path_dir + '/Params/Param/Shijuan.yaml')
+    params = get_parameter('ShiJuan')
     case_data=[]
     for i in range(0, len(params)):
         case_data.append(params[i])

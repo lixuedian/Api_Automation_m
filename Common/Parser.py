@@ -4,12 +4,12 @@
 # 文件名称 ： Parser.py
 # 开发工具 ： PyCharm
 import inspect
-
 from Common import Log, Assert
 
 test = Assert.Assertions()
 
 log = Log.MyLog()
+
 
 def retrieve_name(var):
     """
@@ -20,9 +20,11 @@ def retrieve_name(var):
     callers_local_vars = inspect.currentframe().f_back.f_locals.items()
     return [var_name for var_name, var_val in callers_local_vars if var_val is var]
 
-def parser(response_data, parser_data, expected_data):
+
+def parser(response_data,  test_name, parser_data, expected_data):
     """
     读取yaml文件进行解析 断言，核心 把字符串转换可执行变量
+    :param test_name:
     :param response_data:
     :param parser_data:
     :param expected_data:
@@ -30,5 +32,5 @@ def parser(response_data, parser_data, expected_data):
     """
     a = ''.join(retrieve_name(response_data))
     for x, y in dict(parser_data).items():
-       result = test.assert_text(eval(a+parser_data[x]), expected_data[x])
+        result = test.assert_text(eval(a + parser_data[x]), expected_data[x], test_name)
     return result

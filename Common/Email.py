@@ -26,7 +26,7 @@ class SendMail:
         self.config = Config()
         self.log = Log.MyLog()
 
-    def sendMail(self,report_file):
+    def send_mail(self, report_file):
         with open(report_file, "rb") as f:
             mail_body = f.read()
         msg = MIMEMultipart()
@@ -63,11 +63,12 @@ class SendMail:
             print("发送成功")
             self.log.info("邮件发送成功")
 
+
 def get_report_file(report_path):
 
     lists = os.listdir(report_path)
-    lists.sort(key = lambda fn: os.path.getmtime(os.path.join(report_path, fn)))
-    print (u'最新测试生成的报告到>>report>>目录：'+ lists[-1])
+    lists.sort(key=lambda fn: os.path.getmtime(os.path.join(report_path, fn)))
+    print(u'最新测试生成的报告到>>report>>目录：' + lists[-1])
 
-    report_file = os.path.join( report_path, lists[-1])
+    report_file = os.path.join(report_path, lists[-1])
     return report_file

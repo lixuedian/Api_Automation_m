@@ -88,5 +88,4 @@ def my_aes_decrypt(msg, key, vi):
     return obj.decrypt(msg).decode()
 
 
-
 print(my_md5('wj123456'))

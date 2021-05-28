@@ -4,20 +4,22 @@
 # 文件名称 ： Methodes.py
 # 开发工具 ： PyCharm
 
-from Common import Request, GToken as gt
+from Common import Request, GToken as Gt
 from Config.Config import Config
 
 request = Request.Request()
 config = Config()
 
+
 class notify(object):
     def token(self):
-        if gt.get_token() ==None:
-            token =  config.get_conf('parameter', 'token')
+        if Gt.get_token() == None:
+            token = config.get_conf('parameter', 'token')
         else:
-            token = gt.get_token()
+            token = Gt.get_token()
         return token
-    def notify_result(self, mode, url, data, header):
+
+    def notify_result(self, mode, url, data, header, f_type):
         # 请求方式
         numbers = {
             0: self.get_request,
@@ -28,12 +30,16 @@ class notify(object):
 
         }
         method = numbers.get(mode)
-        if method:
-            res = method(url, data, header)
+        if mode == 1:
+            if method:
+                res = method(url, data, header, f_type)
+            return res
+        elif mode in (0, 1, 2, 3, 4):
+            if method:
+                res = method(url, data, header)
             return res
         else:
             assert AssertionError
-
 
     def get_request(self, url, data, header):
         """
@@ -43,20 +49,21 @@ class notify(object):
         :param header:
         :return:
         """
-        header['token'] = self.token()
+        # header['token'] = self.token()
         result = request.get_request(url, data, header)
         return result
 
-    def post_request(self, url, data, header):
+    def post_request(self, url, data, header, f_type):
         """
         根据用户，枪头编号查询可用账户
+        :param f_type:
         :param url:
         :param data:
         :param header:
         :return:
         """
-        header['token'] = self.token()
-        result = request.post_request(url, data, header)
+        # header['token'] = self.token()
+        result = request.post_request(url, data, header, f_type)
         return result
 
     def post_request_multipart(self, url, data, header):
@@ -68,7 +75,7 @@ class notify(object):
         :return:
         """
         header['token'] = self.token()
-        result = request.post_request_multipart(url, data, header,'file_parm', 'file', 'f_type')
+        result = request.post_request_multipart(url, data, header, 'file_parm', 'file', 'f_type')
         return result
 
     def post_request_urlencoded(self, url, data, header):

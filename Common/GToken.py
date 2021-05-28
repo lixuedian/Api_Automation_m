@@ -5,9 +5,11 @@
 # 开发工具 ： PyCharm
 _global_dict = {}
 
+
 def _init():
     global _global_dict
     _global_dict = {}
+
 
 def set_value(key, value):
     """ 定义一个全局变量 """
@@ -15,6 +17,8 @@ def set_value(key, value):
     # print('write....', key, value)
     _global_dict[key] = value
     # print('==============================: ', _global_dict)
+
+
 def get_value(key, defValue=None):
     """ 获得一个全局变量,不存在则返回默认值 """
     try:
@@ -22,9 +26,16 @@ def get_value(key, defValue=None):
     except KeyError:
         return defValue
 
+
 def set_token(value):
     """ 设置全局TOKEN值 """
     _global_dict['token'] = value
+
+
+def set_uuid(value):
+    """ 设置全局uuid值 """
+    _global_dict['uuid'] = value
+
 
 def get_token(defValue=None):
     """ 获得一个全局变量,不存在则返回默认值 """
@@ -33,9 +44,11 @@ def get_token(defValue=None):
     except KeyError:
         return defValue
 
+
 def set_order(value):
     """ 设置全局ORDER值 """
     _global_dict['token'] = value
+
 
 def get_order(defValue=None):
     """ 获得一个全局变量,不存在则返回默认值 """

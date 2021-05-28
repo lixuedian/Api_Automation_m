@@ -4,14 +4,14 @@
 # 文件名称 ： Config.py
 # 开发工具 ： PyCharm
 from configparser import ConfigParser
-from Common import Log, GToken as gt
+from Common import Log, GToken as Gt
 import os
 
 TITLE_TOKEN = 'parameter'
 
 
 def get_token():
-    return gt.get_value('')
+    return Gt.get_value('')
 
 
 class Config:
@@ -19,9 +19,17 @@ class Config:
     TITLE_DEBUG = "private_debug"
     TITLE_RELEASE = "online_release"
     TITLE_EMAIL = "mail"
-    TITLE_HOST="test_host"
+    TITLE_HOST = "test_host"
+    TITLE_TOKEN = 'parameter'
 
-    VALUE_TEST_04_UNIFIDE_URL="test04_unified_url"
+    VALUE_TEST_04_UNIFIDE_URL = "test04_unified_url"
+    VALUE_TEST_SHIJUAN_URL = "test_shijian_url"
+    VALUE_TEST_Position_URL = "test_position_url"
+    VALUE_TEST_express_URL = "test_express_url"
+    VALUE_TEST_04_user_URL = 'user_url'
+    VALUE_TEST_H_Token = 'ht_token'
+    VALUE_TEST_Token = 'token'
+
     # values:
     # [debug\release]
     VALUE_TESTER = "tester"
@@ -75,6 +83,12 @@ class Config:
         self.username = self.get_conf(Config.TITLE_EMAIL, Config.VALUE_USERNAME)
         self.password = self.get_conf(Config.TITLE_EMAIL, Config.VALUE_PASSWORD)
         self.test04_unified_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_04_UNIFIDE_URL)
+        self.test_shijian_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_SHIJUAN_URL)
+        self.test_Position_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_Position_URL)
+        self.test_express_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_express_URL)
+        self.test_user_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_04_user_URL)
+        self.token = self.get_conf(Config.TITLE_TOKEN, Config.VALUE_TEST_Token)
+        self.h_token = self.get_conf(Config.TITLE_TOKEN, Config.VALUE_TEST_H_Token)
 
     def get_conf(self, title, value):
         """
@@ -98,7 +112,9 @@ class Config:
         """
         self.config.set(title, value, text)
         if 'token' == value:
-            gt.set_token(text)
+            Gt.set_token(text)
+        if 'uuid' == value:
+            Gt.set_uuid(text)
         with open(self.conf_path, "w+") as f:
             return self.config.write(f)
 
