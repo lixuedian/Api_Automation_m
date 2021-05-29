@@ -11,7 +11,7 @@ url = '%s%s' % ('http://', urs)
 receive = ReceiveApi(url, token)
 test = 2
 name = '2--有城市001'
-positionType = 2
+# positionType = 2
 
 
 class TestShiJuan(object):
@@ -35,46 +35,46 @@ class TestShiJuan(object):
         receive.add_recruit_exam_one('2021北京教师招聘考试', test)
 
         """后台获取招考列表"""
-        recruitExamId = receive.get_recruit_exam_list()
+        receive.get_recruit_exam_list()
 
         """获取招考单条信息"""
-        receive.get_recruit_exam_one(recruitExamId)
+        receive.get_recruit_exam_one()
 
         """修改招考单条信息"""
-        receive.set_recruit_exam_one(name, recruitExamId, test)
+        receive.set_recruit_exam_one(name, test)
 
         """线上运营添加接口"""
-        receive.add_operation_recruit_exam_one(recruitExamId)
+        receive.add_operation_recruit_exam_one()
 
         """获取线上运营列表"""
-        recruitExamOperationId = receive.get_operation_recruit_exam_list(recruitExamId)
+        recruitExamOperationId = receive.get_operation_recruit_exam_list()
 
         """线上运营启用，禁用，删除接口"""
-        receive.set_operation_recruit_exam_one(recruitExamOperationId, 2)
-        receive.set_operation_recruit_exam_one(recruitExamOperationId, 1)
-        receive.set_operation_recruit_exam_one(recruitExamOperationId, 3)
+        receive.set_operation_recruit_exam_one(2)
+        receive.set_operation_recruit_exam_one(1)
+        receive.set_operation_recruit_exam_one(3)
 
         """添加绑定素材"""
-        recruitExamMaterialId = receive.add_material_one(recruitExamId)
+        receive.add_material_one()
         """获取素材列表"""
-        receive.get_material_list(recruitExamId)
+        receive.get_material_list()
         """编辑绑定素材"""
-        receive.set_material_one(recruitExamMaterialId)
-        receive.get_material_list(recruitExamId)
+        receive.set_material_one()
+        receive.get_material_list()
         """删除绑定素材"""
-        receive.opt_material_one(recruitExamMaterialId)
+        receive.opt_material_one()
 
         """删除招考单条信息"""
-        receive.opt_recruit_exam_one(recruitExamId)
+        receive.opt_recruit_exam_one()
 
         """获取公众号列表"""
         receive.get_wechat_account_list()
 
         """生成小程序带参数二维码"""
-        receive.create_qrcode(recruitExamId)
+        receive.create_qrcode()
 
         """后台获取推广码列表"""
-        receive.get_qrcode_list(recruitExamId)
+        receive.get_qrcode_list()
         Consts.RESULT_LIST.append('True')
 
     @allure.description('运营位')
@@ -82,25 +82,25 @@ class TestShiJuan(object):
     def test_sj_03(self, case):
         TestShiJuan.test_sj_03.__doc__ = case['test_name']
         """运营位添加接口"""
-        positionId = receive.add_operate_position_one()
+        receive.add_operate_position_one()
         """运营位修改接口"""
-        receive.set_operate_position_one(positionId)
+        receive.set_operate_position_one()
         """运营位查询接口"""
-        receive.get_operate_position_one(positionId)
+        receive.get_operate_position_one()
         """运营位列表接口"""
-        receive.get_operate_position_list(positionType)
+        receive.get_operate_position_list(2)
         """运营位删除接口"""
-        receive.set_operation_position_0ne(positionId, 2)
+        receive.set_operation_position_0ne(2)
 
     @allure.description('预置位')
     @pytest.mark.parametrize('case', case_data)
     def test_sj_04(self, case):
         """预置位添加接口"""
-        positionId = receive.add_preset_position_one()
+        receive.add_preset_position_one()
         """获取预置位单条接口"""
-        receive.get_preset_position_one(positionId)
+        receive.get_preset_position_one()
         """预置位编辑接口"""
-        receive.set_preset_position_one(positionId)
+        receive.set_preset_position_one()
         """运营位删除接口"""
-        receive.set_operation_position_0ne(positionId, 1)
+        receive.set_operation_position_0ne(1)
         Consts.RESULT_LIST.append('True')

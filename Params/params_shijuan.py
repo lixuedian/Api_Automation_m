@@ -7,6 +7,11 @@ test = Assert.Assertions()
 
 
 class ReceiveApi(object):
+    recruitExamId = '',
+    recruitExamOperationId = '',
+    recruitExamMaterialId = ''
+    positionId = ''
+
     def __init__(self, url, token):
         self.url = url
         self.token = token
@@ -44,8 +49,8 @@ class ReceiveApi(object):
         test.assert_text(res['msg'], '成功', '后台获取招考列表)')
         lists = res['data']['lists']
         for list in lists:
-            recruitExamId = list['recruitExamId']
-            return recruitExamId
+            ReceiveApi.recruitExamId = list['recruitExamId']
+
 
     def add_recruit_exam_one(self, name, num):
         """添加招考单条信息"""
@@ -88,12 +93,12 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '添加招考单条信息)')
         test.assert_text(res['msg'], '成功', '添加招考单条信息)')
 
-    def get_recruit_exam_one(self, recruitExamId):
+    def get_recruit_exam_one(self):
         """获取招考单条信息"""
         api = '/admin-recruitexam/getRecruitExamOne'
         body = {
             "businessId": 1,
-            'recruitExamId': recruitExamId
+            'recruitExamId': ReceiveApi.recruitExamId
         }
         log.info('test_name={}, url={}, data={}'.
                  format('获取招考单条信息', api, body, self.h))
@@ -103,12 +108,12 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '获取招考单条信息)')
         test.assert_text(res['msg'], '成功', '获取招考单条信息)')
 
-    def set_recruit_exam_one(self, name, recruitExamId, num):
+    def set_recruit_exam_one(self, name, num):
         """修改招考单条信息"""
         api = '/admin-recruitexam/setRecruitExamOne'
         body = {
             "recruitExamName": name,
-            'recruitExamId': recruitExamId,
+            'recruitExamId': ReceiveApi.recruitExamId,
             "type": num,
             "scale": 1,
             "period": 1,
@@ -146,12 +151,12 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '修改招考单条信息)')
         test.assert_text(res['msg'], '成功', '修改招考单条信息)')
 
-    def opt_recruit_exam_one(self, recruitExamId):
+    def opt_recruit_exam_one(self):
         """删除招考单条信息"""
         api = '/admin-recruitexam/optRecruitExamOne'
         body = {
             "businessId": 1,
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId
         }
         log.info('test_name={}, url={}, data={}'.
                  format('删除招考单条信息', api, body, self.h))
@@ -161,11 +166,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '删除招考单条信息)')
         test.assert_text(res['msg'], '成功', '删除招考单条信息)')
 
-    def get_operation_recruit_exam_list(self, recruitExamId):
+    def get_operation_recruit_exam_list(self):
         """获取线上运营列表"""
         api = '/admin-recruitexam/getOperationRecruitExamList'
         body = {
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId,
             "page": 1,
             "pageSize": 10
         }
@@ -178,14 +183,13 @@ class ReceiveApi(object):
         test.assert_text(res['msg'], '成功', '获取线上运营列表)')
         lists = res['data']['lists']
         for list in lists:
-            recruitExamOperationId = list['recruitExamOperationId']
-            return recruitExamOperationId
+            ReceiveApi.recruitExamOperationId = list['recruitExamOperationId']
 
-    def set_operation_recruit_exam_one(self, recruitExamOperationId, optType):
+    def set_operation_recruit_exam_one(self, optType):
         """线上运营启用，禁用，删除接口"""
         api = '/admin-recruitexam/setOperationRecruitExamOne'
         body = {
-            "recruitExamOperationId": recruitExamOperationId,
+            "recruitExamOperationId": ReceiveApi.recruitExamOperationId,
             "optType": optType
         }
         log.info('test_name={}, url={}, data={}'.
@@ -196,11 +200,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '线上运营启用，禁用，删除接口)')
         test.assert_text(res['msg'], '成功', '线上运营启用，禁用，删除接口)')
 
-    def add_operation_recruit_exam_one(self, recruitExamId):
+    def add_operation_recruit_exam_one(self):
         """线上运营添加接口"""
         api = '/admin-recruitexam/addOperationRecruitExamOne'
         body = {
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId,
             "activityEntityId": 43,
             "recruitStageKey": 1
         }
@@ -212,11 +216,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '线上运营添加接口)')
         test.assert_text(res['msg'], '成功', '线上运营添加接口)')
 
-    def get_material_list(self, recruitExamId):
+    def get_material_list(self):
         """获取素材列表"""
         api = '/admin-recruitexam/getMaterialList'
         body = {
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId,
             "targetType": 1,
             "recruitStageKey": 1,
             "activityEntityId": 43,
@@ -231,11 +235,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '获取素材列表)')
         test.assert_text(res['msg'], '成功', '获取素材列表)')
 
-    def add_material_one(self, recruitExamId):
+    def add_material_one(self):
         """添加绑定素材"""
         api = '/admin-recruitexam/addMaterialOne'
         body = {
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId,
             "attachment": "https://all-imags.oss-cn-hangzhou.aliyuncs.com/jiaoshipai/processApply/2021-04/20210425093421669.pdf",
             "title": "素材名称",
             "targetType": 1,
@@ -250,13 +254,13 @@ class ReceiveApi(object):
         log.info('响应结果：%s' % res)
         test.assert_text(res['code'], 1, '添加绑定素材)')
         test.assert_text(res['msg'], '成功', '添加绑定素材)')
-        return res['data']['recruitExamMaterialId']
+        ReceiveApi.recruitExamMaterialId =  res['data']['recruitExamMaterialId']
 
-    def set_material_one(self, recruitExamMaterialId):
+    def set_material_one(self):
         """编辑绑定素材"""
         api = '/admin-recruitexam/setMaterialOne'
         body = {
-            "recruitExamMaterialId": recruitExamMaterialId,
+            "recruitExamMaterialId": ReceiveApi.recruitExamMaterialId,
             "attachment": "https://all-imags.oss-cn-hangzhou.aliyuncs.com/jiaoshipai/processApply/2021-04/20210425093421669.pdf",
             "title": "素材名称001",
             'targetType': 1,
@@ -270,11 +274,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '编辑绑定素材)')
         test.assert_text(res['msg'], '成功', '编辑绑定素材)')
 
-    def opt_material_one(self, recruitExamMaterialId):
+    def opt_material_one(self):
         """删除绑定素材"""
         api = '/admin-recruitexam/optMaterialOne'
         body = {
-            "recruitExamMaterialId": recruitExamMaterialId,
+            "recruitExamMaterialId": ReceiveApi.recruitExamMaterialId,
             "optType": 1,
         }
         log.info('test_name={}, url={}, data={}'.
@@ -285,11 +289,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '删除绑定素材)')
         test.assert_text(res['msg'], '成功', '删除绑定素材)')
 
-    def get_qrcode_list(self, recruitExamId):
+    def get_qrcode_list(self):
         """后台获取推广码列表"""
         api = '/admin-recruitexam/getQrcodeList'
         body = {
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId,
             "recruitStageKey": 1,
             "activityEntityId": "1",
             "channelId": "1",
@@ -319,13 +323,13 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '获取公众号列表)')
         test.assert_text(res['msg'], '获取成功', '获取公众号列表)')
 
-    def create_qrcode(self, recruitExamId):
+    def create_qrcode(self):
         """生成小程序带参数二维码"""
         api = '/admin-wechat/createQrcode'
         body = {
             "businessId": 1,
             "waId": "43",
-            "recruitExamId": recruitExamId,
+            "recruitExamId": ReceiveApi.recruitExamId,
             "recruitStageKey": 1,
             "activityEntityId": "1",
             "channelId": "1",
@@ -363,16 +367,15 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '运营位添加接口)')
         test.assert_text(res['msg'], '成功', '运营位添加接口)')
         try:
-            positionId = res['data']['positionId']
-            return positionId
+            ReceiveApi.positionId = res['data']['positionId']
         except :
             pass
 
-    def set_operate_position_one(self, positionId):
+    def set_operate_position_one(self):
         """运营位修改接口"""
         api = '/admin-recruitexam/setOperatePositionOne'
         body = {
-            "positionId": positionId,
+            "positionId": ReceiveApi.positionId,
             'activityEntityId': 46,
             "positionCode": "test_1",
             "positionName": '测试001',
@@ -386,11 +389,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '运营位修改接口)')
         test.assert_text(res['msg'], '成功', '运营位修改接口)')
 
-    def get_operate_position_one(self, positionId):
+    def get_operate_position_one(self):
         """运营位查询接口"""
         api = '/admin-recruitexam/getOperatePositionOne'
         body = {
-            "positionId": positionId
+            "positionId": ReceiveApi.positionId
         }
         log.info('test_name={}, url={}, data={}'.
                  format('运营位查询接口', api, body, self.h))
@@ -418,12 +421,12 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '运营位列表接口)')
         test.assert_text(res['msg'], '成功', '运营位列表接口)')
 
-    def set_operation_position_0ne(self, positionId, positionType):
+    def set_operation_position_0ne(self, positionType):
         """运营位删除接口"""
         api = '/admin-recruitexam/setOperationPositionOne'
         body = {
             "positionType": positionType,
-            'positionId': positionId
+            'positionId': ReceiveApi.positionId
         }
         log.info('test_name={}, url={}, data={}'.
                  format('运营位删除接口', api, body, self.h))
@@ -433,11 +436,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '运营位删除接口)')
         test.assert_text(res['msg'], '成功', '运营位删除接口)')
 
-    def get_preset_position_one(self, positionId):
+    def get_preset_position_one(self):
         """获取预置位单条接口"""
         api = '/admin-recruitexam/getPresetPositionOne'
         body = {
-            'positionId': positionId
+            'positionId': ReceiveApi.positionId
         }
         log.info('test_name={}, url={}, data={}'.
                  format('获取预置位单条接口', api, body, self.h))
@@ -472,12 +475,11 @@ class ReceiveApi(object):
         test.assert_text(res['code'], 1, '预置位添加接口)')
         test.assert_text(res['msg'], '成功', '预置位添加接口)')
         try:
-            positionId = res['data']['positionId']
-            return positionId
+            ReceiveApi.positionId = res['data']['positionId']
         except :
             pass
 
-    def set_preset_position_one(self, positionId):
+    def set_preset_position_one(self):
         """预置位编辑接口"""
         api = '/admin-recruitexam/setPresetPositionOne'
         h = {
@@ -489,7 +491,7 @@ class ReceiveApi(object):
             "activityEntityName": "职位查询小程序",
             "positionCode": "test01",
             "positionDesc": "",
-            "positionId": positionId,
+            "positionId": ReceiveApi.positionId,
             "positionName": "首页气泡001",
             "positionType": 1,
             "templateList": [{
