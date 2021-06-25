@@ -11,7 +11,7 @@ request = Request.Request()
 config = Config()
 
 
-class notify(object):
+class Notify(object):
     def token(self):
         if Gt.get_token() == None:
             token = config.get_conf('parameter', 'token')

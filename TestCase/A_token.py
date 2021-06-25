@@ -5,7 +5,7 @@
 import os
 import allure
 import pytest
-from Common.Methodes import notify
+from Common.Methodes import Notify
 from Config.Config import Config
 from Common import Request, Log
 from Common import Consts
@@ -22,7 +22,7 @@ class TestBasic(object):
     request = Request.Request()
     test = Assert.Assertions()
     config = Config()
-    noti = notify()
+    noti = Notify()
 
     # ids = [
     #     "测试：{}".

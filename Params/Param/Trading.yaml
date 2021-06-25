@@ -1,0 +1,16 @@
+role_list:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取招考列表-事业单位'
+      mode: 0
+      type:
+      methods: get
+      url: /oauth/department/role/list
+      data: {
+        'departmentId': 1,
+        'roleName': 22
+      }
+      #header: {'token': &token}
+      parser:  &parser {'code' :"['body']['code']", 'msg': '["body"]["msg"]' }
+      expected: &expected { 'code': 1, 'msg': '成功' }

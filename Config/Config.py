@@ -21,14 +21,18 @@ class Config:
     TITLE_EMAIL = "mail"
     TITLE_HOST = "test_host"
     TITLE_TOKEN = 'parameter'
+    TITLE_TOKEN_ZT = 'Trading'
+    TITLE_TOKEN_ZT_HT = 'Integrated'
 
     VALUE_TEST_04_UNIFIDE_URL = "test04_unified_url"
     VALUE_TEST_SHIJUAN_URL = "test_shijian_url"
     VALUE_TEST_Position_URL = "test_position_url"
     VALUE_TEST_express_URL = "test_express_url"
     VALUE_TEST_04_user_URL = 'user_url'
-    VALUE_TEST_H_Token = 'ht_token'
+    # token
     VALUE_TEST_Token = 'token'
+    VALUE_test_mp_url = 'test_mp_url'
+
 
     # values:
     # [debug\release]
@@ -87,8 +91,13 @@ class Config:
         self.test_Position_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_Position_URL)
         self.test_express_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_express_URL)
         self.test_user_url = self.get_conf(Config.TITLE_HOST, Config.VALUE_TEST_04_user_URL)
+
         self.token = self.get_conf(Config.TITLE_TOKEN, Config.VALUE_TEST_Token)
-        self.h_token = self.get_conf(Config.TITLE_TOKEN, Config.VALUE_TEST_H_Token)
+        # 综合后台用户token
+        self.h_token = self.get_conf(Config.TITLE_TOKEN_ZT_HT, Config.VALUE_TEST_Token)
+        # 交易中台用户token
+        self.token_zt = self.get_conf(Config.TITLE_TOKEN_ZT, Config.VALUE_TEST_Token)
+        self.test_mp_url = self.get_conf(Config.TITLE_TOKEN_ZT, Config.VALUE_test_mp_url)
 
     def get_conf(self, title, value):
         """
@@ -128,7 +137,11 @@ class Config:
         with open(self.conf_path, "w+") as f:
             return self.config.write(f)
 
-
+    def write_configuration(self, parameter, token):
+        # 写入配置文件
+        self.set_conf(parameter, 'token', token)
+        print('tokoen写入配置文件成功')
+        Log.MyLog().info('写入配置文件成功，token ={}'.format(self.get_conf(parameter, 'token')))
 
 
 

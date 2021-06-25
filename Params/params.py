@@ -44,3 +44,10 @@ class ShiJuan:
     for i in range(0, len(params)):
         case_data.append(params[i])
         # print(params)
+
+
+class ZTLogin:
+    params = get_parameter('ZT_login')
+    case_data = []
+    for i in range(0, len(params)):
+        case_data.append(params[i])

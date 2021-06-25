@@ -7,7 +7,7 @@ from Common.Parser import parser
 
 import allure
 import pytest
-from Common.Methodes import notify
+from Common.Methodes import Notify
 from Config.Config import Config
 from Params.params import Process
 from Common import Log
@@ -19,7 +19,7 @@ BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 class TestProcess(object):
     config = Config()
-    noti = notify()
+    noti = Notify()
     log = Log.MyLog()
     data = Process()
     case_data = data.case_data

@@ -1,7 +1,7 @@
 
 import allure
 import pytest
-from Common.Methodes import notify
+from Common.Methodes import Notify
 from Config.Config import Config
 from Params.params_express import *
 from Common import Log
@@ -9,7 +9,7 @@ from Common import Consts
 from Common.Parser import parser
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 config = Config()
-notify = notify()
+notify = Notify()
 log = Log.MyLog()
 url = config.test_express_url
 url = '%s%s' % ('https://', url)
@@ -26,7 +26,7 @@ class TestExpress(object):
         log.info('test_name={}, url={}, data={}, header={}'.
                  format(case['test_name'], url+case['url'], case['data'], case['header']))
         # 判断请求方法
-        result = notify.notify_result(case['mode'], url+case['url'], case['data'], case['header'], case['type'])
+        result = Notify.notify_result(case['mode'], url + case['url'], case['data'], case['header'], case['type'])
         print(case['mode'], case['url'], case['data'], case['header'])
         log.info('响应结果：%s' % result)
         parser(result, case['test_name'], case['parser'], case['expected'])
@@ -42,7 +42,7 @@ class TestExpress(object):
         log.info('test_name={}, url={}, data={}, header={}'.
                  format(case['test_name'], url+case['url'], case['data'], case['header']))
         # 判断请求方法
-        result = notify.notify_result(case['mode'], url+case['url'], case['data'], case['header'], case['type'])
+        result = Notify.notify_result(case['mode'], url + case['url'], case['data'], case['header'], case['type'])
         print(case['mode'], case['url'], case['data'], case['header'])
         log.info('响应结果：%s' % result)
         parser(result, case['test_name'], case['parser'], case['expected'])
@@ -58,7 +58,7 @@ class TestExpress(object):
         log.info('test_name={}, url={}, data={}, header={}'.
                  format(case['test_name'], url+case['url'], case['data'], case['header']))
         # 判断请求方法
-        result = notify.notify_result(case['mode'], url+case['url'], case['data'], case['header'], case['type'])
+        result = Notify.notify_result(case['mode'], url + case['url'], case['data'], case['header'], case['type'])
         print(case['mode'], case['url'], case['data'], case['header'])
         log.info('响应结果：%s' % result)
         parser(result, case['test_name'], case['parser'], case['expected'])

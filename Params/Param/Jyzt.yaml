@@ -1,0 +1,50 @@
+Logout:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '用户登出'
+      mode: 1
+      type: data
+      methods: post
+      url: /ucenter/account/logout
+      data: {
+      }
+      #header: {'token': &token}
+      parser:  {'code' :"['body']['code']", 'msg': '["body"]["msg"]' }
+      expected:  { 'code': 1, 'msg': '成功' }
+
+permission:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取用户具体权限'
+      mode: 1
+      type: data
+      methods: post
+      url: /ucenter/account/permission
+      data: {
+              'userId': '',
+              'projectId': ''
+      }
+      #header: {'token': &token}
+      parser:   {'code' :"['body']['code']", 'msg': '["body"]["msg"]' }
+      expected:  { 'code': 1, 'msg': '成功' }
+
+sso:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取用户具体权限'
+      mode: 1
+      type: data
+      methods: post
+      url: /ucenter/account/permission
+      data: {
+        'projectId': '',
+        'userId': '',
+        'token': '',
+        'url': ''
+      }
+      #header: {'token': &token}
+      parser:   {'code' :"['body']['code']", 'msg': '["body"]["msg"]' }
+      expected:  { 'code': 1, 'msg': '成功' }
