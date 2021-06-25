@@ -9,15 +9,15 @@ from Common.Read_data import data
 from Common.Log import logger
 
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-data_file_path = os.path.join(BASE_PATH, "config", "setting.ini")
+data_file_path = os.path.join(BASE_PATH, "config", "Config.ini")
 data = data.load_ini(data_file_path)["mysql"]
 
 DB_CONF = {
-    "host": data["MYSQL_HOST"],
-    "port": int(data["MYSQL_PORT"]),
-    "user": data["MYSQL_USER"],
-    "password": data["MYSQL_PASSWD"],
-    "db": data["MYSQL_DB"]
+    "host": data["mysql_host"],
+    "port": int(data["mysql_port"]),
+    "user": data["mysql_user"],
+    "password": data["mysql_passwd"],
+    "db": data["mysql_db"]
 }
 
 
@@ -60,4 +60,6 @@ class MysqlDb():
             self.conn.rollback()
 
 
-db = MysqlDb(DB_CONF)
+db = MysqlDb()
+data = db.select_db('SELECT * from test_contract.contract c where c.phone=18600531753 and businessId= 2')
+print(data[0]['id'])
