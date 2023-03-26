@@ -1,0 +1,26 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "xuejian",
+    "children" : [ {
+      "name" : "31280-MainThread",
+      "children" : [ {
+        "name" : "test_login[case0]",
+        "uid" : "851d06467cdb505c",
+        "parentUid" : "0c4b3319fb5d7ab15b6b3319d9dab1da",
+        "status" : "passed",
+        "time" : {
+          "start" : 1679845992015,
+          "stop" : 1679845992118,
+          "duration" : 103
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'test_name': '用例1：登录成功', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': 200}}" ]
+      } ],
+      "uid" : "0c4b3319fb5d7ab15b6b3319d9dab1da"
+    } ],
+    "uid" : "04c005103e94d61c6eeb597b86e05035"
+  } ]
+}

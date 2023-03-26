@@ -1,0 +1,7 @@
+login:
+  parameters:
+    -
+      test_name: '用例1：登录成功'
+      body: { }
+      parser: { 'code': "['code']"}
+      expected: { 'code': 200}

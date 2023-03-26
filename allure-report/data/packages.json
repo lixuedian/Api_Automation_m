@@ -1,0 +1,22 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "TestCase.test_login",
+    "children" : [ {
+      "name" : "test_login[case0]",
+      "uid" : "851d06467cdb505c",
+      "parentUid" : "947fd64009aa32c6799c8651a53e1cd1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1679845992015,
+        "stop" : 1679845992118,
+        "duration" : 103
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'test_name': '用例1：登录成功', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': 200}}" ]
+    } ],
+    "uid" : "TestCase.test_login"
+  } ]
+}
