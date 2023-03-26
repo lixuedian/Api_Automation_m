@@ -1,5 +1,18 @@
 # API_Automation
 基于Pytest+request+Allure的接口自动化开源框架
+导出第三方模块
+pip freeze >requirements.txt
+导入第三方模块
+pip install -r requirements.txt
+
+pip install pytest==5.4.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+先解压文件allure
+解压完成后添加环境变量，
+安装java，配置环境变量，
+执行命令：allure generate D:\\bitvito/Report/xml -o D:\\bitvito/Report/html --clean
+pytest --html=D:\bitvito/Report/report.html --self-contained-html
+
 
 ----
 ### Common 公共包

@@ -1,29 +1,20 @@
 # -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
-# 开发时间 ： 2020/12/17 11:31
 # 文件名称 ： Mysql_operate.py
 # 开发工具 ： PyCharm
+"""
+封装的链接数据库方法
+"""
 import pymysql
 import os
-from Common.Read_data import data
+from Config.Config import Config
 from Common.Log import logger
 
 BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-data_file_path = os.path.join(BASE_PATH, "config", "Config.ini")
-data = data.load_ini(data_file_path)["mysql"]
-
-DB_CONF = {
-    "host": data["mysql_host"],
-    "port": int(data["mysql_port"]),
-    "user": data["mysql_user"],
-    "password": data["mysql_passwd"],
-    "db": data["mysql_db"]
-}
 
 
-class MysqlDb():
+class MysqlDb(object):
 
-    def __init__(self, db_conf=DB_CONF):
+    def __init__(self, db_conf):
         # 通过字典拆包传递配置信息，建立数据库连接
         self.conn = pymysql.connect(**db_conf, autocommit=True)
         # 通过 cursor() 创建游标对象，并让查询结果以字典格式输出
@@ -33,6 +24,14 @@ class MysqlDb():
         # 关闭游标
         self.cur.close()
         # 关闭数据库连接
+        self.conn.close()
+
+    def get_count(self, sql):
+        self.conn.commit()
+        return self.cur.execute(sql)
+
+    def close(self):
+        self.cur.close()
         self.conn.close()
 
     def select_db(self, sql):
@@ -60,6 +59,52 @@ class MysqlDb():
             self.conn.rollback()
 
 
-db = MysqlDb()
-data = db.select_db('SELECT * from test_contract.contract c where c.phone=18600531753 and businessId= 2')
-print(data[0]['id'])
+# # 读取配置参数
+# def mysql_conf(conf):
+#     data_file_path = os.path.join(BASE_PATH, "config", "Config_test.ini")
+#     data = Common.Read_data.data.load_ini(data_file_path)[f'{conf}']
+#     DB_CONF = {
+#         "host": data["mysql_host"],
+#         "port": int(data["mysql_port"]),
+#         "user": data["mysql_user"],
+#         "password": data["mysql_passwd"],
+#         "db": data["mysql_db"]
+#     }
+#     return DB_CONF
+
+
+# 获取多个id列表
+def mysql_id(mysql):
+    db_conf = Config().mysql_conf('mysql')
+    # mysql = "select id from test_mp_goods_center.goods_handout where name = '测试_xuejian01'"
+    ids = MysqlDb(db_conf).select_db(mysql)
+    a = []
+    for handoutId in ids:
+        for handout in handoutId.values():
+            a.append(handout)
+    return a
+
+
+# 查询
+def mysql_select(mysql):
+    db_conf = Config().mysql_conf('mysql')
+    return MysqlDb(db_conf).select_db(mysql)
+
+
+# 查询数据库返回value
+def mysql_value(mysql):
+    db_conf = Config().mysql_conf('mysql')
+    value = MysqlDb(db_conf).select_db(mysql)
+    for item in value:
+        for key in item:
+            value = item[key]
+    return value
+
+
+# 更新
+def mysql_db(mysql):
+    db_conf = Config().mysql_conf('mysql')
+    return MysqlDb(db_conf).execute_db(mysql)
+
+
+

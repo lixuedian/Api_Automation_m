@@ -7,13 +7,16 @@
 封装各种加密方法
 
 """
-
-from hashlib import sha1
+import base64
+import binascii
+import hmac
 from hashlib import md5
-from Crypto.Hash import SHA256
+from hashlib import sha1, pbkdf2_hmac
+from hashlib import sha256
+
 from Crypto.Cipher import AES
 from Crypto.Cipher import DES
-import binascii
+from Crypto.Hash import SHA256, SHA512
 
 
 def my_md5(msg):
@@ -45,6 +48,17 @@ def my_sha256(msg):
     :return: 加密后的字符
     """
     sh = SHA256.new()
+    sh.update(msg.encode('utf-8'))
+    return sh.hexdigest()
+
+
+def my_sha512(msg):
+    """
+    sha512 算法加密
+    :param msg: 需加密的字符串
+    :return: 加密后的字符
+    """
+    sh = SHA512.new()
     sh.update(msg.encode('utf-8'))
     return sh.hexdigest()
 
@@ -88,4 +102,38 @@ def my_aes_decrypt(msg, key, vi):
     return obj.decrypt(msg).decode()
 
 
-print(my_md5('wj123456'))
+def my_sha1_seed(msg, seed):
+    """
+    sha1加盐加密
+    :param msg: 加密数据
+    :param seed: 盐
+    :return:
+    """
+    seed = seed.encode("utf-8")
+    msg = msg.encode("utf-8")
+    dk = pbkdf2_hmac('sha1', msg, seed, 100, 64)
+    # 转换成十六进制对应的字符串
+    return binascii.hexlify(dk).decode()
+
+
+def my_sha256_seed(msg, seed):
+    """
+    sha1加盐加密
+    :param msg: 加密数据
+    :param seed: 盐
+    :return:
+    """
+    seed = seed.encode("utf-8")
+    msg = msg.encode("utf-8")
+    dk = pbkdf2_hmac('sha256', msg, seed, 100, 64)
+    # 转换成十六进制对应的字符串
+    return binascii.hexlify(dk).decode()
+
+
+def get_sha256(data, key):
+    # HmacSHA256加密算法
+    key = key.encode('utf-8')       # sha256加密的key
+    message = data.encode('utf-8')  # 待sha256加密的内容
+    sign = hmac.new(key, message, digestmod=sha256).hexdigest()
+    # sign = base64.b64encode(hmac.new(key, message, digestmod=sha256).digest()).decode()
+    return sign

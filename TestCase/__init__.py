@@ -1,5 +1,11 @@
-# _*_ coding : UTF-8
-# 开发团队 ： 平台研发部—测试组
-# 开发时间 ： 2020/12/14 10:47
-# 文件名称 ： __init__.py.py
-# 开发工具 ： PyCharm
+# -*- coding: UTF-8 -*-
+'''
+@Project ：Bitvito
+@File ：__init__.py.py
+@Author ：刘迎
+@Date ：2021/9/18 11:19
+'''
+
+import os
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+BASE_PATH_1 = BASE_PATH + "/test_case"

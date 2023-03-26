@@ -1,13 +1,10 @@
 # _*_ coding : UTF-8
-# 开发团队 ： 平台研发部—测试组
 # 开发时间 ： 2020/12/23 13:21
 # 文件名称 ： Parser.py
 # 开发工具 ： PyCharm
 import inspect
 from Common import Log, Assert
-
 test = Assert.Assertions()
-
 log = Log.MyLog()
 
 
@@ -32,5 +29,10 @@ def parser(response_data,  test_name, parser_data, expected_data):
     """
     a = ''.join(retrieve_name(response_data))
     for x, y in dict(parser_data).items():
-        result = test.assert_text(eval(a + parser_data[x]), expected_data[x], test_name)
-    return result
+        try:
+            test.assert_text(eval(a + parser_data[x]), expected_data[x], test_name)
+        except AssertionError:
+            log.info("断言失败！")
+            raise
+    log.info("*************** 结束执行用例 ***************")
+

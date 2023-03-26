@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
 # 开发时间 ： 2020/12/17 11:31
 # 文件名称 ： Assert.py
 # 开发工具 ： PyCharm
@@ -11,6 +10,11 @@
 from Common import Log
 from Common import Consts
 import json
+
+from Common.Mysql_operate import MysqlDb
+from Config.Config import Config
+
+# db = MysqlDb(Config().mysql_conf('mysql'))
 
 
 class Assertions:
@@ -27,7 +31,7 @@ class Assertions:
         try:
             assert code == expected_code
             return True
-        except:
+        except AssertionError:
             self.log.error("statusCode error, expected_code is %s, statusCode is %s " % (expected_code, code))
             Consts.RESULT_LIST.append('fail')
 
@@ -46,7 +50,7 @@ class Assertions:
             assert msg == expected_msg
             return True
 
-        except:
+        except AssertionError:
             self.log.error(
                 "Response body msg != expected_msg, expected_msg is %s, body_msg is %s" % (expected_msg, body_msg))
             Consts.RESULT_LIST.append('fail')
@@ -64,9 +68,10 @@ class Assertions:
             text = json.dumps(body, ensure_ascii=False)
             # print(text)
             assert expected_msg in text
+            self.log.info("PASS ==>> 预期结果：{}， 实际结果：{}".format(body, expected_msg))
             return True
 
-        except:
+        except AssertionError:
             self.log.error("Response body Does not contain expected_msg, expected_msg is %s" % expected_msg)
             Consts.RESULT_LIST.append('fail')
 
@@ -82,11 +87,12 @@ class Assertions:
         """
         try:
             assert body == expected_msg
+            self.log.info("PASS ==>> 预期结果：{}， 实际结果：{}".format(body, expected_msg))
             return True
 
-        except:
-            self.log.error("%s Response body != expected_msg, 预期结果 is %s, 实际结果 is %s" % (test_name,
-                                                                                         expected_msg, body))
+        except AssertionError:
+            self.log.error("%s,Fail ==>> 预期结果: %s, 实际结果: %s" % (test_name, expected_msg, body))
+            self.log.info("*************** 结束执行用例 ***************")
             Consts.RESULT_LIST.append('fail')
 
             raise
@@ -102,8 +108,42 @@ class Assertions:
             assert time < expected_time
             return True
 
-        except:
+        except AssertionError:
             self.log.error("Response time > expected_time, expected_time is %s, time is %s" % (expected_time, time))
             Consts.RESULT_LIST.append('fail')
-
             raise
+
+    # def assert_sql(self, s_sql):
+    #     """
+    #     查询数据是否存在
+    #     :param s_sql:
+    #     :return:
+    #     """
+    #     count = db.get_count(s_sql)
+    #     try:
+    #         assert count == 1
+    #         self.log.info('PASS ==>>执行{}得到的数据{}'.format(s_sql, count))
+    #     except AssertionError:
+    #         self.log.error("Fail ==>> 预期结果: %s, 实际结果: %s" % (s_sql, count))
+    #         self.log.info("断言失败！")
+    #         raise
+    #
+    # def assert_msql(self, sql, msg):
+    #     """
+    #     对数据进行比对
+    #     :param msg:
+    #     :param sql:
+    #     :return:
+    #     """
+    #     count = db.select_db(sql)
+    #     try:
+    #         msq = ''
+    #         for item in count:
+    #             for key in item:
+    #                 msq = item[key]
+    #         assert msq == msg
+    #         self.log.info('PASS ==>>执行{},预期结果: {}, 实际结果: {}'.format(sql, msg, count))
+    #     except AssertionError:
+    #         self.log.error("Fail ==>>执行%s, 预期结果: %s, 实际结果: %s" % (sql, msg, count))
+    #         self.log.info("断言失败！")
+    #         raise

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
 # 开发时间 ： 2020/12/17 11:31
 # 文件名称 ： Log.py
 # 开发工具 ： PyCharm
@@ -93,6 +92,14 @@ class MyLog:
         set_handler('critical')
         logger.error("[CRITICAL " + get_current_time() + "]" + log_meg)
         remove_handler('critical')
+
+
+def re(url, method, headers, data):
+    # 打印接口请求参数
+    MyLog.info("请求头为：{}".format(headers))
+    MyLog.info("请求方法为：{}".format(method))
+    MyLog.info("请求url为：{}".format(url))
+    MyLog.info("请求数据为：{}".format(data))
 
 
 if __name__ == "__main__":

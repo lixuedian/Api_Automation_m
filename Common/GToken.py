@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
 # 开发时间 ： 2020/12/17 11:31
 # 文件名称 ： GToken.py
 # 开发工具 ： PyCharm
 _global_dict = {}
 
 
-def _init():
+def init():
     global _global_dict
     _global_dict = {}
 

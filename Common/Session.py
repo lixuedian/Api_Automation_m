@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
 # 开发时间 ： 2020/12/17 11:31
 # 文件名称 ： Session.py
 # 开发工具 ： PyCharm
@@ -10,7 +9,7 @@
 """
 
 import requests
-
+import json
 from Common import Log
 from Config import Config
 
@@ -26,18 +25,20 @@ class Session:
         :param env: 环境变量
         :return:
         """
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko)\
-                          Chrome/67.0.3396.99 Safari/537.36",
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
+        # headers = {
+        #     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko)\
+        #                   Chrome/67.0.3396.99 Safari/537.36",
+        #     "Content-Type": "application/x-www-form-urlencoded"
+        # }
+        headers = {'Content-Type': "application/json"}
+
 
         if env == "debug":
             login_url = 'http://' + self.config.loginHost_debug
             parm = self.config.loginInfo_debug
 
             session_debug = requests.session()
-            response = session_debug.post(login_url, parm, headers=headers)
+            response = session_debug.post(login_url, data=json.dumps(parm), headers=headers)
             print(response.cookies)
             self.log.debug('cookies: %s' % response.cookies.get_dict())
             return response.cookies.get_dict()
@@ -57,6 +58,6 @@ class Session:
             self.log.error('get cookies error, please checkout!!!')
 
 
-# if __name__ == '__main__':
-#     ss = Session()
-#     ss.get_session('debug')
+if __name__ == '__main__':
+    ss = Session()
+    ss.get_session('debug')

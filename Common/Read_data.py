@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# 开发团队 ： 平台研发部—测试组
 # 开发时间 ： 2020/12/17 11:31
 # 文件名称 ： Read_data.py
 # 开发工具 ： PyCharm
@@ -18,7 +17,7 @@ class MyConfigParser(ConfigParser):
         return optionstr
 
 
-class ReadFileData():
+class ReadFileData(object):
 
     def __init__(self):
         pass
