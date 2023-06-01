@@ -67,7 +67,7 @@ def get_report_file(report_path):
 
     lists = os.listdir(report_path)
     lists.sort(key=lambda fn: os.path.getmtime(os.path.join(report_path, fn)))
-    print(u'最新测试生成的报告到>>report>>目录：' + lists[-1])
+    print(u'最新测试生成的报告到>>report>>目录：' + lists[1])
 
-    report_file = os.path.join(report_path, lists[-1])
+    report_file = os.path.join(report_path, lists[1])
     return report_file

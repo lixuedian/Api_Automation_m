@@ -81,6 +81,8 @@ class Config:
         # 交易员请求host
         self.cas_url = self.get_conf(Config.TITLE_HOST, 'cas_url')
         self.home_url = self.get_conf(Config.TITLE_HOST, 'home_url')
+        self.finance_url = self.get_conf(Config.TITLE_HOST, 'finance_url')
+        self.wlms_url = self.get_conf(Config.TITLE_HOST, 'wlms_url')
 
     def get_conf(self, title, value):
         """
@@ -107,6 +109,8 @@ class Config:
             Gt.set_token(text)
         if 'uuid' == value:
             Gt.set_uuid(text)
+        if 'cookies' == value:
+            Gt.set_cookies(text)
         with open(self.conf_path, "w+") as f:
             return self.config.write(f)
 

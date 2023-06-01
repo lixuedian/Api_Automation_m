@@ -1,7 +1,6 @@
 """
 __title__  =
 __Time__   = 2020/10/27 19:44
-__Author__ = 小菠萝测试笔记
 __Blog__   = https://www.cnblogs.com/poloyy/
 """
 import json

@@ -36,6 +36,11 @@ def set_uuid(value):
     _global_dict['uuid'] = value
 
 
+def set_cookies(value):
+    """ 设置全局Cookie值 """
+    _global_dict['Cookie'] = value
+
+
 def get_token(defValue=None):
     """ 获得一个全局变量,不存在则返回默认值 """
     try:

@@ -16,7 +16,7 @@ config = Config()
 log = Log.MyLog()
 
 
-class Notify():
+class Notify:
     @staticmethod
     def token():
         pass
@@ -32,6 +32,7 @@ class Notify():
             5: self.delete_request,
             6: self.patch_request
         }
+        header = {'Cookie': config.get_conf('parameter', 'cookie')}
         method = numbers.get(mode)
         if mode:
             if f_type:

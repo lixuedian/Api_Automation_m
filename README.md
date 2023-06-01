@@ -10,9 +10,10 @@ pip install pytest==5.4.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.
 先解压文件allure
 解压完成后添加环境变量，
 安装java，配置环境变量，
-执行命令：allure generate D:\\bitvito/Report/xml -o D:\\bitvito/Report/html --clean
+执行命令：allure generate E:\interfaceTest\Api_Automation\Report\xml -o E:\interfaceTest\Api_Automation\Report\html --clean
 pytest --html=D:\bitvito/Report/report.html --self-contained-html
 
+pytest --html=E:\interfaceTest\Api_Automation\Report\report.html --self-contained-html
 
 ----
 ### Common 公共包

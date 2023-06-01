@@ -32,7 +32,6 @@ class Session:
         # }
         headers = {'Content-Type': "application/json"}
 
-
         if env == "debug":
             login_url = 'http://' + self.config.loginHost_debug
             parm = self.config.loginInfo_debug

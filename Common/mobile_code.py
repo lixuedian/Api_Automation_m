@@ -46,7 +46,7 @@ def mobile_code():
           "num=10 您正在进行安全验证,您的验证码为" \
           "num=14 修改邮箱密码"
     if iphone and num:
-        db_code('mobile_code', num, iphone)
+        # db_code('mobile_code', num, iphone)
         b = EnvData.__dict__
         b = b['mobile_code']
         if b == '':

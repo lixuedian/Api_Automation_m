@@ -2,29 +2,42 @@
   "uid" : "98d3104e051c652961429bf95fa0b5d6",
   "name" : "suites",
   "children" : [ {
-    "name" : "TestCase",
+    "name" : "TestCase.finance",
     "children" : [ {
-      "name" : "test_login",
+      "name" : "test_product",
       "children" : [ {
-        "name" : "TestLOGIN",
+        "name" : "TestProductConfig",
         "children" : [ {
-          "name" : "test_login[case0]",
-          "uid" : "851d06467cdb505c",
-          "parentUid" : "a1b6d507424069bb59d4dd87461fd1e4",
+          "name" : "test_page_query_product_config[case0]",
+          "uid" : "66452c6ae775f5c3",
+          "parentUid" : "a1a82974319005487cf09615f9ecfa29",
           "status" : "passed",
           "time" : {
-            "start" : 1679845992015,
-            "stop" : 1679845992118,
-            "duration" : 103
+            "start" : 1680001197903,
+            "stop" : 1680001198907,
+            "duration" : 1004
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "{'test_name': '用例1：登录成功', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': 200}}" ]
+          "parameters" : [ "{'test_name': '用例1：产品管理--分页查询产品配置信息', 'body': {'productCode': '', 'productName': '', 'state': '', 'productModel': 'None', 'coreCompanyName': 'None', 'fundName': 'None', 'pageParam': {'pageNum': 1, 'pageSize': 10}}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '000000'}}" ]
+        }, {
+          "name" : "test_page_query_product_config[case1]",
+          "uid" : "a06b05937566118",
+          "parentUid" : "a1a82974319005487cf09615f9ecfa29",
+          "status" : "failed",
+          "time" : {
+            "start" : 1680001198921,
+            "stop" : 1680001199546,
+            "duration" : 625
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "{'test_name': '用例2：产品管理--分页查询产品配置信息01', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '1'}}" ]
         } ],
-        "uid" : "a1b6d507424069bb59d4dd87461fd1e4"
+        "uid" : "a1a82974319005487cf09615f9ecfa29"
       } ],
-      "uid" : "572226e32cb17df2f1d915b4e22c3e13"
+      "uid" : "4d39a14fe42b3615264486f1010bf234"
     } ],
-    "uid" : "ee79ae265a842e48c4df30f006daaf4e"
+    "uid" : "5aba6adf525cd393e412646fff7c7a5f"
   } ]
 }

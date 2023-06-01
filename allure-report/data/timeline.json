@@ -4,22 +4,35 @@
   "children" : [ {
     "name" : "xuejian",
     "children" : [ {
-      "name" : "31280-MainThread",
+      "name" : "16292-MainThread",
       "children" : [ {
-        "name" : "test_login[case0]",
-        "uid" : "851d06467cdb505c",
-        "parentUid" : "0c4b3319fb5d7ab15b6b3319d9dab1da",
-        "status" : "passed",
+        "name" : "test_page_query_product_config[case1]",
+        "uid" : "a06b05937566118",
+        "parentUid" : "20415ed70968ad7e7dc8c505548ac99f",
+        "status" : "failed",
         "time" : {
-          "start" : 1679845992015,
-          "stop" : 1679845992118,
-          "duration" : 103
+          "start" : 1680001198921,
+          "stop" : 1680001199546,
+          "duration" : 625
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "{'test_name': '用例1：登录成功', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': 200}}" ]
+        "parameters" : [ "{'test_name': '用例2：产品管理--分页查询产品配置信息01', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '1'}}" ]
+      }, {
+        "name" : "test_page_query_product_config[case0]",
+        "uid" : "66452c6ae775f5c3",
+        "parentUid" : "20415ed70968ad7e7dc8c505548ac99f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1680001197903,
+          "stop" : 1680001198907,
+          "duration" : 1004
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'test_name': '用例1：产品管理--分页查询产品配置信息', 'body': {'productCode': '', 'productName': '', 'state': '', 'productModel': 'None', 'coreCompanyName': 'None', 'fundName': 'None', 'pageParam': {'pageNum': 1, 'pageSize': 10}}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '000000'}}" ]
       } ],
-      "uid" : "0c4b3319fb5d7ab15b6b3319d9dab1da"
+      "uid" : "20415ed70968ad7e7dc8c505548ac99f"
     } ],
     "uid" : "04c005103e94d61c6eeb597b86e05035"
   } ]

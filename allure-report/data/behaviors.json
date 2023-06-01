@@ -4,18 +4,31 @@
   "children" : [ {
     "name" : "登录",
     "children" : [ {
-      "name" : "test_login[case0]",
-      "uid" : "851d06467cdb505c",
+      "name" : "test_page_query_product_config[case0]",
+      "uid" : "66452c6ae775f5c3",
       "parentUid" : "6e12e06fb17fec92464fd1fd24bca881",
       "status" : "passed",
       "time" : {
-        "start" : 1679845992015,
-        "stop" : 1679845992118,
-        "duration" : 103
+        "start" : 1680001197903,
+        "stop" : 1680001198907,
+        "duration" : 1004
       },
       "flaky" : false,
       "newFailed" : false,
-      "parameters" : [ "{'test_name': '用例1：登录成功', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': 200}}" ]
+      "parameters" : [ "{'test_name': '用例1：产品管理--分页查询产品配置信息', 'body': {'productCode': '', 'productName': '', 'state': '', 'productModel': 'None', 'coreCompanyName': 'None', 'fundName': 'None', 'pageParam': {'pageNum': 1, 'pageSize': 10}}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '000000'}}" ]
+    }, {
+      "name" : "test_page_query_product_config[case1]",
+      "uid" : "a06b05937566118",
+      "parentUid" : "6e12e06fb17fec92464fd1fd24bca881",
+      "status" : "failed",
+      "time" : {
+        "start" : 1680001198921,
+        "stop" : 1680001199546,
+        "duration" : 625
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'test_name': '用例2：产品管理--分页查询产品配置信息01', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '1'}}" ]
     } ],
     "uid" : "6e12e06fb17fec92464fd1fd24bca881"
   } ]

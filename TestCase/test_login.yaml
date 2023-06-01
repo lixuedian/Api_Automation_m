@@ -5,3 +5,13 @@ login:
       body: { }
       parser: { 'code': "['code']"}
       expected: { 'code': 200}
+
+
+Transfertodo:
+  parameters:
+    -
+      test_name: '用例1：登录成功'
+      needCode: &needCode CGXQ2023050097
+      body: { }
+      parser: { 'needCode': "['data']['data'][0]['needCode']", 'msg': "['msg']"}
+      expected: { 'needCode': *needCode,  'msg': 'su'}

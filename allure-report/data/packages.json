@@ -2,21 +2,34 @@
   "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
   "name" : "packages",
   "children" : [ {
-    "name" : "TestCase.test_login",
+    "name" : "TestCase.finance.test_product",
     "children" : [ {
-      "name" : "test_login[case0]",
-      "uid" : "851d06467cdb505c",
-      "parentUid" : "947fd64009aa32c6799c8651a53e1cd1",
+      "name" : "test_page_query_product_config[case0]",
+      "uid" : "66452c6ae775f5c3",
+      "parentUid" : "9b81d7a4ddcde58ddfa85e28d8375535",
       "status" : "passed",
       "time" : {
-        "start" : 1679845992015,
-        "stop" : 1679845992118,
-        "duration" : 103
+        "start" : 1680001197903,
+        "stop" : 1680001198907,
+        "duration" : 1004
       },
       "flaky" : false,
       "newFailed" : false,
-      "parameters" : [ "{'test_name': '用例1：登录成功', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': 200}}" ]
+      "parameters" : [ "{'test_name': '用例1：产品管理--分页查询产品配置信息', 'body': {'productCode': '', 'productName': '', 'state': '', 'productModel': 'None', 'coreCompanyName': 'None', 'fundName': 'None', 'pageParam': {'pageNum': 1, 'pageSize': 10}}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '000000'}}" ]
+    }, {
+      "name" : "test_page_query_product_config[case1]",
+      "uid" : "a06b05937566118",
+      "parentUid" : "9b81d7a4ddcde58ddfa85e28d8375535",
+      "status" : "failed",
+      "time" : {
+        "start" : 1680001198921,
+        "stop" : 1680001199546,
+        "duration" : 625
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'test_name': '用例2：产品管理--分页查询产品配置信息01', 'body': {}, 'parser': {'code': \"['code']\"}, 'expected': {'code': '1'}}" ]
     } ],
-    "uid" : "TestCase.test_login"
+    "uid" : "TestCase.finance.test_product"
   } ]
 }

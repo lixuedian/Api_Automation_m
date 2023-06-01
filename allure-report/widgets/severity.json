@@ -1,10 +1,20 @@
 [ {
-  "uid" : "851d06467cdb505c",
-  "name" : "test_login[case0]",
+  "uid" : "a06b05937566118",
+  "name" : "test_page_query_product_config[case1]",
   "time" : {
-    "start" : 1679845992015,
-    "stop" : 1679845992118,
-    "duration" : 103
+    "start" : 1680001198921,
+    "stop" : 1680001199546,
+    "duration" : 625
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "66452c6ae775f5c3",
+  "name" : "test_page_query_product_config[case0]",
+  "time" : {
+    "start" : 1680001197903,
+    "stop" : 1680001198907,
+    "duration" : 1004
   },
   "status" : "passed",
   "severity" : "normal"

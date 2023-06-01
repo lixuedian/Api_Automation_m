@@ -1,6 +1,0 @@
-[INFO 2023-03-26 23:53:11]执行前先清除文件，文件删除成功:E:\interfaceTest\Api_Automation/Report/xml
-[INFO 2023-03-26 23:53:11]文件不存在请忽略信息:E:\interfaceTest\Api_Automation/Report/html
-[INFO 2023-03-26 23:53:11]执行前先清除文件，文件删除成功:E:\interfaceTest\Api_Automation/allure-report
-[INFO 2023-03-26 23:53:11]初始化配置文件, path=E:\interfaceTest\Api_Automation\Config\config_test.ini
-[INFO 2023-03-26 23:53:12]*************** 开始执行用例 ***************
-[INFO 2023-03-26 23:53:12]用例名称  ==>> 用例1：登录成功

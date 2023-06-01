@@ -159,50 +159,5 @@ def value_list(value, signTime=None, signUrl=None, api=None):
     return line
 
 
-#
-# lists = {
-#     "batchOrders": [{
-#         "currencyPairId": 1001044,
-#         "side": 1,
-#         "positionSide": 1,
-#         "orderType": 1,
-#         "quantity": 10,
-#         "price": 200
-#     },{
-#         "currencyPairId": 1001044,
-#         "side": 1,
-#         "positionSide": 1,
-#         "orderType": 1,
-#         "quantity": 10,
-#         "price": 200
-#     }
-#     ]
-# }
-# list1 = {
-#     "batchOrders": [{
-#         "currencyPairId": 1001044,
-#         "side": 1,
-#         "positionSide": 1,
-#         "orderType": 1,
-#         "quantity": 10,
-#         "price": 200
-#     }
-#     ]
-# }
-# s = {'currencyPairId': 2001045, 'side': 1, 'positionSide': 1, 'orderType': 1, 'quantity': 1, 'price': 100, 'workingType': '', 'exeType': '', 'profitType': '', 'lossType': '', 'exeProfitType': '', 'exeLossType': '', 'stopPrice': '', 'profitPrice': '', 'lossPrice': '', 'exeProfitPrice': '', 'exeLossPrice': ''}
-# ss = {"currencyPairId": 1001044, "orderIds": [943331233628549]}
-# sss = {"currencyPairIdList": [1001044], "value": 1}
-# value = map_xu(lists)
-# value = value_list(value)
-# print(value)
-#
-# print(value)
-# a = 'otherUserId=1&secretKey=2ddl5uqicv4xy3avbcqcnu2tdyc3xato&signTime=1564554895507&signUrl=POST /users'
-# signTime = 1564554895507
-# signUrl = 'POST'
-# api = '/users'
-# c = {
-#     'otherUserId': 1
-# }
-# d = signature_otc(ss, signTime, signUrl, api)
-# print(d)
+b = {'x-imos-auth_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjc5OTIwODMyLCJpYXQiOjE2Nzk4ODQ4MzJ9.Ed1-6CTn2KZaE22-zjMEAsYsrNTlrD8vLnmEAI4_nJQ'}
+print(value_list(b))

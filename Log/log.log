@@ -1,6 +1,124 @@
-[INFO 2023-03-26 23:53:11]执行前先清除文件，文件删除成功:E:\interfaceTest\Api_Automation/Report/xml
-[INFO 2023-03-26 23:53:11]文件不存在请忽略信息:E:\interfaceTest\Api_Automation/Report/html
-[INFO 2023-03-26 23:53:11]执行前先清除文件，文件删除成功:E:\interfaceTest\Api_Automation/allure-report
-[INFO 2023-03-26 23:53:11]初始化配置文件, path=E:\interfaceTest\Api_Automation\Config\config_test.ini
-[INFO 2023-03-26 23:53:12]*************** 开始执行用例 ***************
-[INFO 2023-03-26 23:53:12]用例名称  ==>> 用例1：登录成功
+[INFO 2023-03-28 18:59:57]执行前先清除文件，文件删除成功:E:\interfaceTest\Api_Automation/Report/xml
+[INFO 2023-03-28 18:59:57]执行前先清除文件，文件删除成功:E:\interfaceTest\Api_Automation/Report/html
+[INFO 2023-03-28 18:59:57]文件不存在请忽略信息:E:\interfaceTest\Api_Automation/allure-report
+[INFO 2023-03-28 18:59:57]初始化配置文件, path=E:\interfaceTest\Api_Automation\Config\config_test.ini
+[INFO 2023-03-28 18:59:57]*************** 开始执行用例 ***************
+[INFO 2023-03-28 18:59:57]用例名称  ==>> 用例1：产品管理--分页查询产品配置信息
+[INFO 2023-03-28 18:59:57]接口请求地址 ==>> https://scf-m.m-bid.cnooc.com.cn/api/admin/product/productConfig/pageQueryProductConfig
+[INFO 2023-03-28 18:59:57]接口请求方式 ==>> post
+[INFO 2023-03-28 18:59:57]接口请求头 ==>> {
+    "Cookie": "x-imos-auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjgwMDM1ODEzLCJpYXQiOjE2Nzk5OTk4MTN9.RpTVrTH1-PCz0i5q5P5Pemj2Af5v6VOtgEcHhCLN6Pg",
+    "Content-Type": "application/json"
+}
+[INFO 2023-03-28 18:59:57]接口参数 ==>> "{\"productCode\": \"\", \"productName\": \"\", \"state\": \"\", \"productModel\": \"None\", \"coreCompanyName\": \"None\", \"fundName\": \"None\", \"pageParam\": {\"pageNum\": 1, \"pageSize\": 10}}"
+[INFO 2023-03-28 18:59:58]响应数据为：{'code': '000000', 'msg': None, 'data': {'queryProductConfigVOList': [], 'pageParam': None}, 'fieldError': {}, 'time_consuming': 999.45}
+[INFO 2023-03-28 18:59:58]PASS ==>> 预期结果：000000， 实际结果：000000
+[INFO 2023-03-28 18:59:58]*************** 结束执行用例 ***************
+[INFO 2023-03-28 18:59:58]*************** 开始执行用例 ***************
+[INFO 2023-03-28 18:59:58]用例名称  ==>> 用例2：产品管理--分页查询产品配置信息01
+[INFO 2023-03-28 18:59:58]接口请求地址 ==>> https://scf-m.m-bid.cnooc.com.cn/api/admin/product/productConfig/pageQueryProductConfig
+[INFO 2023-03-28 18:59:58]接口请求方式 ==>> post
+[INFO 2023-03-28 18:59:58]接口请求头 ==>> {
+    "Cookie": "x-imos-auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjgwMDM1ODEzLCJpYXQiOjE2Nzk5OTk4MTN9.RpTVrTH1-PCz0i5q5P5Pemj2Af5v6VOtgEcHhCLN6Pg",
+    "Content-Type": "application/json"
+}
+[INFO 2023-03-28 18:59:58]接口参数 ==>> "{}"
+[INFO 2023-03-28 18:59:59]响应数据为：{'code': '000006', 'msg': '字段验证不通过', 'data': None, 'fieldError': {'pageParam': '分页参数不能为空'}, 'time_consuming': 620.184}
+[ERROR 2023-03-28 18:59:59]用例2：产品管理--分页查询产品配置信息01,Fail ==>> 预期结果: 1, 实际结果: 000006
+[INFO 2023-03-28 18:59:59]*************** 结束执行用例 ***************
+[INFO 2023-03-28 18:59:59]断言失败！
+[INFO 2023-03-29 11:26:43]*************** 开始执行用例 ***************
+[INFO 2023-03-29 11:26:43]用例名称  ==>> 用例1：登录成功
+[INFO 2023-03-29 11:26:44]写入配置文件成功，uuid =None
+[INFO 2023-03-30 10:36:21]*************** 开始执行用例 ***************
+[INFO 2023-03-30 10:36:21]用例名称  ==>> 用例1：登录成功
+[INFO 2023-03-30 10:36:21]写入配置文件成功，uuid =None
+[INFO 2023-04-25 11:21:25]*************** 开始执行用例 ***************
+[INFO 2023-04-25 11:21:25]用例名称  ==>> 用例1：登录成功
+[INFO 2023-04-25 11:21:25]写入配置文件成功，uuid =None
+[INFO 2023-04-25 11:22:45]*************** 开始执行用例 ***************
+[INFO 2023-04-25 11:22:45]用例名称  ==>> 用例1：登录成功
+[INFO 2023-04-25 11:22:45]写入配置文件成功，uuid =None
+[INFO 2023-05-18 17:41:43]*************** 开始执行用例 ***************
+[INFO 2023-05-18 17:41:43]用例名称  ==>> 用例1：登录成功
+[INFO 2023-05-18 17:43:01]*************** 开始执行用例 ***************
+[INFO 2023-05-18 17:43:01]用例名称  ==>> 用例1：登录成功
+[INFO 2023-05-18 17:43:03]写入配置文件成功，uuid =None
+[INFO 2023-05-18 18:07:47]*************** 开始执行用例 ***************
+[INFO 2023-05-18 18:07:47]用例名称  ==>> 用例1：登录成功
+[INFO 2023-05-18 18:07:47]接口请求地址 ==>> https://wlms.m-bid.cnooc.com.cn/api/wlms-share/transfertodo/page
+[INFO 2023-05-18 18:07:47]接口请求方式 ==>> get
+[INFO 2023-05-18 18:07:47]接口请求头 ==>> {
+    "Cookie": "x-imos-auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjg0NDM4OTc5LCJpYXQiOjE2ODQ0MDI5Nzl9.lBp4BO3TNSHu1zfkMr4FXMMBnKQD9DITrkxFwYtRlBA"
+}
+[INFO 2023-05-18 18:07:47]接口请求 params 参数 ==>> {
+    "limit": "10",
+    "current": "1",
+    "pageSize": 10,
+    "loginName": "lixd5",
+    "character": 0,
+    "needCode": "CGXQ2023050097"
+}
+[INFO 2023-05-18 18:07:48]响应数据为：{'code': '0000', 'data': {'page': '1', 'limit': '10', 'total': '1', 'pages': '1', 'data': [{'id': '426f91f7b8548f6aba5a0eaa26daa9f6', 'deptFullId': '1012,68510,361364', 'deptFullName': '中国海洋石油集团有限公司\\中海石油气电集团有限责任公司\\中海油江苏天然气有限责任公司', 'todoCode': 'ZP2023051991', 'delFlag': '0', 'todoState': '006002', 'noBalAppFlag': '0', 'needCode': 'CGXQ2023050097', 'demandId': '361364', 'demandCode': '361364', 'demandDescr': '江苏天然气', 'demandSimpleDescr': '江苏天然气', 'billType': '3', 'totalMoney': 124.38, 'confirmNum': 0, 'confirmChange': '0', 'applyTime': '2023-05-18 13:58:48', 'creatorId': 'fea188eab613edf8c457f559e137b5df', 'creator': '曹伟军', 'createTime': '2023-05-18 13:58:52', 'updaterId': 'fea188eab613edf8c457f559e137b5df', 'updater': '曹伟军', 'updateTime': '2023-05-18 13:58:52', 'dispatcherId': 'f6642f4654386cb4558241de28540565', 'dispatcher': 'lixuedian', 'dispatcherDeptId': '361364', 'dispatcherDeptName': '中海油江苏天然气有限责任公司', 'exitDemand': '1', 'statusName': '审批中', 'todoStateName': '审批中', 'matCode': '82213197', 'matDescr': '溢油分散剂\\GM-2\\青岛光明', 'exitDeptFullId': '1'}]}, 'timestamp': '1684404465367', 'msg': 'success', 'ok': True}
+[ERROR 2023-05-18 18:07:48]用例1：登录成功,Fail ==>> 预期结果: needCode, 实际结果: CGXQ2023050097
+[INFO 2023-05-18 18:07:48]*************** 结束执行用例 ***************
+[INFO 2023-05-18 18:07:48]断言失败！
+[INFO 2023-05-18 18:09:24]*************** 开始执行用例 ***************
+[INFO 2023-05-18 18:09:24]用例名称  ==>> 用例1：登录成功
+[INFO 2023-05-18 18:09:24]接口请求地址 ==>> https://wlms.m-bid.cnooc.com.cn/api/wlms-share/transfertodo/page
+[INFO 2023-05-18 18:09:24]接口请求方式 ==>> get
+[INFO 2023-05-18 18:09:24]接口请求头 ==>> {
+    "Cookie": "x-imos-auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjg0NDM4OTc5LCJpYXQiOjE2ODQ0MDI5Nzl9.lBp4BO3TNSHu1zfkMr4FXMMBnKQD9DITrkxFwYtRlBA"
+}
+[INFO 2023-05-18 18:09:24]接口请求 params 参数 ==>> {
+    "limit": "10",
+    "current": "1",
+    "pageSize": 10,
+    "loginName": "lixd5",
+    "character": 0,
+    "needCode": "CGXQ2023050097"
+}
+[INFO 2023-05-18 18:09:25]响应数据为：{'code': '0000', 'data': {'page': '1', 'limit': '10', 'total': '1', 'pages': '1', 'data': [{'id': '426f91f7b8548f6aba5a0eaa26daa9f6', 'deptFullId': '1012,68510,361364', 'deptFullName': '中国海洋石油集团有限公司\\中海石油气电集团有限责任公司\\中海油江苏天然气有限责任公司', 'todoCode': 'ZP2023051991', 'delFlag': '0', 'todoState': '006002', 'noBalAppFlag': '0', 'needCode': 'CGXQ2023050097', 'demandId': '361364', 'demandCode': '361364', 'demandDescr': '江苏天然气', 'demandSimpleDescr': '江苏天然气', 'billType': '3', 'totalMoney': 124.38, 'confirmNum': 0, 'confirmChange': '0', 'applyTime': '2023-05-18 13:58:48', 'creatorId': 'fea188eab613edf8c457f559e137b5df', 'creator': '曹伟军', 'createTime': '2023-05-18 13:58:52', 'updaterId': 'fea188eab613edf8c457f559e137b5df', 'updater': '曹伟军', 'updateTime': '2023-05-18 13:58:52', 'dispatcherId': 'f6642f4654386cb4558241de28540565', 'dispatcher': 'lixuedian', 'dispatcherDeptId': '361364', 'dispatcherDeptName': '中海油江苏天然气有限责任公司', 'exitDemand': '1', 'statusName': '审批中', 'todoStateName': '审批中', 'matCode': '82213197', 'matDescr': '溢油分散剂\\GM-2\\青岛光明', 'exitDeptFullId': '1'}]}, 'timestamp': '1684404562562', 'msg': 'success', 'ok': True}
+[INFO 2023-05-18 18:09:25]PASS ==>> 预期结果：CGXQ2023050097， 实际结果：CGXQ2023050097
+[INFO 2023-05-18 18:09:25]*************** 结束执行用例 ***************
+[INFO 2023-05-18 18:10:39]*************** 开始执行用例 ***************
+[INFO 2023-05-18 18:10:39]用例名称  ==>> 用例1：登录成功
+[INFO 2023-05-18 18:10:39]接口请求地址 ==>> https://wlms.m-bid.cnooc.com.cn/api/wlms-share/transfertodo/page
+[INFO 2023-05-18 18:10:39]接口请求方式 ==>> get
+[INFO 2023-05-18 18:10:39]接口请求头 ==>> {
+    "Cookie": "x-imos-auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjg0NDM4OTc5LCJpYXQiOjE2ODQ0MDI5Nzl9.lBp4BO3TNSHu1zfkMr4FXMMBnKQD9DITrkxFwYtRlBA"
+}
+[INFO 2023-05-18 18:10:39]接口请求 params 参数 ==>> {
+    "limit": "10",
+    "current": "1",
+    "pageSize": 10,
+    "loginName": "lixd5",
+    "character": 0,
+    "needCode": "CGXQ2023050097"
+}
+[INFO 2023-05-18 18:10:41]响应数据为：{'code': '0000', 'data': {'page': '1', 'limit': '10', 'total': '1', 'pages': '1', 'data': [{'id': '426f91f7b8548f6aba5a0eaa26daa9f6', 'deptFullId': '1012,68510,361364', 'deptFullName': '中国海洋石油集团有限公司\\中海石油气电集团有限责任公司\\中海油江苏天然气有限责任公司', 'todoCode': 'ZP2023051991', 'delFlag': '0', 'todoState': '006002', 'noBalAppFlag': '0', 'needCode': 'CGXQ2023050097', 'demandId': '361364', 'demandCode': '361364', 'demandDescr': '江苏天然气', 'demandSimpleDescr': '江苏天然气', 'billType': '3', 'totalMoney': 124.38, 'confirmNum': 0, 'confirmChange': '0', 'applyTime': '2023-05-18 13:58:48', 'creatorId': 'fea188eab613edf8c457f559e137b5df', 'creator': '曹伟军', 'createTime': '2023-05-18 13:58:52', 'updaterId': 'fea188eab613edf8c457f559e137b5df', 'updater': '曹伟军', 'updateTime': '2023-05-18 13:58:52', 'dispatcherId': 'f6642f4654386cb4558241de28540565', 'dispatcher': 'lixuedian', 'dispatcherDeptId': '361364', 'dispatcherDeptName': '中海油江苏天然气有限责任公司', 'exitDemand': '1', 'statusName': '审批中', 'todoStateName': '审批中', 'matCode': '82213197', 'matDescr': '溢油分散剂\\GM-2\\青岛光明', 'exitDeptFullId': '1'}]}, 'timestamp': '1684404637924', 'msg': 'success', 'ok': True}
+[INFO 2023-05-18 18:10:41]PASS ==>> 预期结果：CGXQ2023050097， 实际结果：CGXQ2023050097
+[INFO 2023-05-18 18:10:41]PASS ==>> 预期结果：success， 实际结果：success
+[INFO 2023-05-18 18:10:41]*************** 结束执行用例 ***************
+[INFO 2023-05-18 18:12:38]*************** 开始执行用例 ***************
+[INFO 2023-05-18 18:12:38]用例名称  ==>> 用例1：登录成功
+[INFO 2023-05-18 18:12:38]接口请求地址 ==>> https://wlms.m-bid.cnooc.com.cn/api/wlms-share/transfertodo/page
+[INFO 2023-05-18 18:12:38]接口请求方式 ==>> get
+[INFO 2023-05-18 18:12:38]接口请求头 ==>> {
+    "Cookie": "x-imos-auth_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXhkNSIsImlzcyI6ImxpeGQ1IiwiZXhwIjoxNjg0NDM4OTc5LCJpYXQiOjE2ODQ0MDI5Nzl9.lBp4BO3TNSHu1zfkMr4FXMMBnKQD9DITrkxFwYtRlBA"
+}
+[INFO 2023-05-18 18:12:38]接口请求 params 参数 ==>> {
+    "limit": "10",
+    "current": "1",
+    "pageSize": 10,
+    "loginName": "lixd5",
+    "character": 0,
+    "needCode": "CGXQ2023050097"
+}
+[INFO 2023-05-18 18:12:39]响应数据为：{'code': '0000', 'data': {'page': '1', 'limit': '10', 'total': '1', 'pages': '1', 'data': [{'id': '426f91f7b8548f6aba5a0eaa26daa9f6', 'deptFullId': '1012,68510,361364', 'deptFullName': '中国海洋石油集团有限公司\\中海石油气电集团有限责任公司\\中海油江苏天然气有限责任公司', 'todoCode': 'ZP2023051991', 'delFlag': '0', 'todoState': '006002', 'noBalAppFlag': '0', 'needCode': 'CGXQ2023050097', 'demandId': '361364', 'demandCode': '361364', 'demandDescr': '江苏天然气', 'demandSimpleDescr': '江苏天然气', 'billType': '3', 'totalMoney': 124.38, 'confirmNum': 0, 'confirmChange': '0', 'applyTime': '2023-05-18 13:58:48', 'creatorId': 'fea188eab613edf8c457f559e137b5df', 'creator': '曹伟军', 'createTime': '2023-05-18 13:58:52', 'updaterId': 'fea188eab613edf8c457f559e137b5df', 'updater': '曹伟军', 'updateTime': '2023-05-18 13:58:52', 'dispatcherId': 'f6642f4654386cb4558241de28540565', 'dispatcher': 'lixuedian', 'dispatcherDeptId': '361364', 'dispatcherDeptName': '中海油江苏天然气有限责任公司', 'exitDemand': '1', 'statusName': '审批中', 'todoStateName': '审批中', 'matCode': '82213197', 'matDescr': '溢油分散剂\\GM-2\\青岛光明', 'exitDeptFullId': '1'}]}, 'timestamp': '1684404755825', 'msg': 'success', 'ok': True}
+[INFO 2023-05-18 18:12:39]PASS ==>> 预期结果：CGXQ2023050097， 实际结果：CGXQ2023050097
+[ERROR 2023-05-18 18:12:39]用例1：登录成功,Fail ==>> 预期结果: su, 实际结果: success
+[INFO 2023-05-18 18:12:39]*************** 结束执行用例 ***************
+[INFO 2023-05-18 18:12:39]断言失败！
+[INFO 2023-06-01 14:45:21]*************** 开始执行用例 ***************
+[INFO 2023-06-01 14:45:21]用例名称  ==>> 用例1：登录成功
